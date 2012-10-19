@@ -1,0 +1,40 @@
+<project >
+
+<target name="all" depends="javadoc,compile,jar,run,clean"
+          description="Hace todo"/>
+
+<target name="clean">
+        <delete dir="build"/>
+</target>
+
+<target name="javadoc">
+        <mkdir dir="${basedir}/javadoc/"/>
+        <javadoc 
+            destdir="${basedir}/javadoc/">
+            <taglet
+                name="org.apache.commons.attributes.javadoc.CATaglet"
+                path="${ant.home}/lib/commons-attributes-compiler-2.2.jar"
+             />
+            <fileset dir="${basedir}/" includes="**/*.java" />
+        </javadoc>
+    </target>
+
+<target name="compile">
+        <mkdir dir="build/classes"/>
+        <javac srcdir="src" includeantruntime="false" destdir="build/classes"/>
+</target>
+
+<target name="jar">
+        <mkdir dir="build/jar"/>
+        <jar destfile="build/jar/Practica7.jar" basedir="build/classes">
+            <manifest>
+                <attribute name="Main-Class" value="Matriz"/>
+            </manifest>
+        </jar>
+</target>
+
+<target name="run">
+        <java jar="build/jar/Practica7.jar" fork="true"/>
+</target>
+
+</project>
