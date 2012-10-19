@@ -12,9 +12,12 @@
 >     Matriz n = new Matriz(2,2);
 >     for(int i = 0; i<2;i++){
 >      for(int j = 0; j<2;j++){
->	n.inserta(i+j,i,j)
->      }	
->     }
+>	n.inserta(i+j,i,j);
+>        }	
+>         }
 >     System.out.println(n.toString());
 >
+> En la terminal solo basta poner 
+>     
+>     ant all
  
