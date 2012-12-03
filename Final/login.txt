@@ -1,0 +1,4 @@
+virginia:123456:admin:Virginia Teodosio
+norma:456234:user:Norma Pérez
+oscar:34567:user:Oscar Ruiz
+abraham:6666:admin:Abraham Sosa
