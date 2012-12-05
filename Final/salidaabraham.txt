@@ -1,3 +1,5 @@
 abraham:Abraham Sosa
-Expresion: ()()()()()()
-Expresion Apareada: true
+Expresion: {}{}{}{}{}{}}
+Expresion Apareada: false
+Posicion: 12
+motivo: Se encontro un } y no cerro bien se esperaba un {

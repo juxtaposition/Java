@@ -97,6 +97,8 @@ public class Evaluador {
              }  else { log("Mal balanceado con llaves"); System.exit(0);
                  }
              }
+             
+             
                if(p.peek() == '{'){
                    p.pop();
                    //System.out.println("Una llave bien balacenado");
@@ -123,6 +125,17 @@ public class Evaluador {
         String h = (p.isEmpty())? "Parentesis bien balanceados" : ""; //más vale volver a checar :D
        System.out.println(h); System.exit(1);  
             }
+       } else { log("Mal balanceada la cadena");
+       
+       int tons = pow.compareTo("admin");
+       
+       switch(tons){
+           case 0 :
+                    despliega(nombre,nick,k,position,c,false);  
+               break;
+       }
+       
+       
        }
        
    
