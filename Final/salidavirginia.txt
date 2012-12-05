@@ -1,5 +1,3 @@
 virginia:Virginia Teodosio
-Expresion: (){}[]]
-Expresion Apareada: false
-Posicion: 6
-motivo: Se encontro un ] y no cerro bien se esperaba un [
+Expresion: ()
+Expresion Apareada: true
