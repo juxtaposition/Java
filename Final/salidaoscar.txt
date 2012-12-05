@@ -1,4 +1,0 @@
-oscar:Oscar Ruiz
-Expresion: "#$"#"
-Expresion Apareada: false
-Posicion: 0
