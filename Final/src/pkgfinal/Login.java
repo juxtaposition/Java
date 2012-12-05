@@ -14,13 +14,13 @@ import java.util.Scanner;
  */
 public class Login extends Menu{
     
-        ArrayList<ArrayList> listota = new ArrayList();
-        ArrayList<String> listaNombre = new ArrayList();
-        ArrayList<String> listaPass = new ArrayList();
-        ArrayList<String> listaAdmin = new ArrayList();
-        ArrayList<String> listaNick = new ArrayList();
+        ArrayList<ArrayList> listota = new ArrayList(); // una Lista que contiene listas
+        ArrayList<String> listaNombre = new ArrayList(); // Lista con los nombres
+        ArrayList<String> listaPass = new ArrayList();   // Lista con los passwords
+        ArrayList<String> listaAdmin = new ArrayList();  // Lista con los poderes :D!
+        ArrayList<String> listaNick = new ArrayList();   // Lista con los nicks
         Boolean v = false;
-        String who;
+        String who;    
 
     /**
      * 
@@ -43,19 +43,28 @@ public class Login extends Menu{
     }
     
     /**
-     * 
-     * @param u
-     * @return 
+     * Método que se verifica el password de un usuario en caso de ser invalido
+     * lo informa y lo hace logear de nuevo
+     * @param u Password a verificar
+     * @return Boolean si es correcto o no el password
      */
-    public Boolean pass(String u){
+    public Boolean pass(String u,String user){      
+        String usuario = user; // usuario
+             int s = listota.get(0).size(); // Tamaño de la la lista de users
 
-     int s = listota.size();
      try{
-        for(int i = 1;i<=s;i++){
-                    for(int j = 0;j<listota.get(i).size();j++){
-           v = u.compareTo((String)listota.get(i).get(j)) == 0;
-           if(v){ return v;} 
-        }
+        for(int i = 0;i<=s;i++){ // Recorres la lista de nombres en busca del usuario
+            if(usuario.compareTo((String)listota.get(0).get(i)) == 0 ){ // Si lo encontramos
+                /* Como los indiceis de cada usuario, es el mismo
+                 * para nick, password, y poder basta con hacer obtener su indice en 
+                 * alguna lista y sabemos que su pass, etc debe estar en el mismo indice
+                 * de la lista correspondiente
+                 */
+                v = u.compareTo((String)listota.get(1).get(i)) == 0; // Verificamos su password
+                      if(v){ return v;} 
+                          
+            } else {  /* Nothing to Do */ }         
+                    
                 }
                    return v;
      }catch(Exception e){ System.err.println("Has introducido un password que no existe"); logea();
@@ -81,23 +90,21 @@ public class Login extends Menu{
     }  
     
         public String nick(String u){
-     int s = listota.size();
-        for(int i = 0;i<s;i++){
-                    for(int j = 0;j<listota.get(i).size();j++){
-                        if(u.compareToIgnoreCase((String)listota.get(i).get(j)) == 0){
-                               who = (u.compareTo((String)listota.get(i).get(j)) == 0)? (String)listota.get(3).get(j) : "NoBody" ;           
-                        return who;
-                        }
+     int s = listota.get(3).size();
+     //   for(int i = 3;i<s;i++){
+                    for(int i = 0;i<=s;i++){
+            if(u.compareTo((String)listota.get(0).get(i)) == 0 ){
+                who = (String)listota.get(3).get(i);
+                      return who;
+                          
+            } else {  /* Nothing to Do */ }         
+                    
+                }
+                    return who;
        
         }
-                    // return who;
+                   
 
-    }
-
-              //     return v;
-        return who;
-    }  
-     
      
      
      
@@ -165,8 +172,8 @@ public class Login extends Menu{
 
                 if(user(n)){ System.out.println("Willkommen " + n + " ahora inserta tu pass");
                     String p = sc.nextLine();
-                    Boolean f = (pass(p))? true : false;
-                         if(pass(p)){
+                   // Boolean f = (pass(p,n))? true : false;
+                         if(pass(p,n)){
                         System.out.println("Acceso corretamente");
                             String w = admin(n); // Para saber si es admin o no.
                             String nick = nick(n);

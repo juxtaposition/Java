@@ -1,3 +1,5 @@
 virginia:Virginia Teodosio
-Expresion: ()
-Expresion Apareada: true
+Expresion: ())
+Expresion Apareada: false
+Posicion: 2
+motivo: Se encontro un ) y no cerro bien se esperaba un (

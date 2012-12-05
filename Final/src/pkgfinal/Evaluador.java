@@ -159,7 +159,8 @@ public class Evaluador {
                           writer.write("Expresion Apareada: " +f+"\n");    
                         
                         
-                        if(!f){ 
+                        if(!f){ // 
+                                   
                             writer.write("Posicion: "+ pos+"\n");
                             if(p == ')'){
                             writer.write("motivo: " + "Se encontro un "+p+ " y no cerro bien se esperaba un " +'(');
@@ -193,7 +194,7 @@ public class Evaluador {
 			e.printStackTrace();
 		}
                 show(archivo);  System.exit(1);  
-   } // end despliga() - para admin's
+   } // end despliga() - para admin's que la regaron en algo o no!
    
    
    
@@ -220,7 +221,7 @@ public class Evaluador {
 			e.printStackTrace();
 		}
                 show(archivo); System.exit(1);
-   } // end despliega() - para no admin's
+   } // end despliega() - para admin's que no la regaron con la evaluación
 
     
     
@@ -235,7 +236,7 @@ void show(String f){
             /*for(int i = 0; i< System.getProperties().stringPropertyNames().toArray().length;i++){
                 log((String) System.getProperties().stringPropertyNames().toArray()[i]);
             }*/
-          Scanner showsc = new Scanner(new FileInputStream(f),"UTF-8");
+          Scanner showsc = new Scanner(new FileInputStream(f),"ISO-8859-1");
          
           try {
               while(showsc.hasNextLine()){
