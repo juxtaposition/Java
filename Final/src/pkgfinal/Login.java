@@ -138,18 +138,14 @@ public class Login extends Menu{
                listaPass.add(pa);
                listaAdmin.add(ad);
                listaNick.add(ni);
-               
-               //System.out.println("Y de listota tenemos: "+listota.get(0).get(i));i++;
-               
+                              
             }
-           listota.add(listaNombre);
-           listota.add(listaPass);
-           listota.add(listaAdmin);
-           listota.add(listaNick);
+               listota.add(listaNombre);
+               listota.add(listaPass);
+               listota.add(listaAdmin);
+               listota.add(listaNick);
            
-           
-           
-
+        
             // Cerramos el archivo
             entrada.close();
         }catch (Exception e){ //Catch de excepciones
@@ -165,30 +161,30 @@ public class Login extends Menu{
       
       System.out.println("Primero veamos si existe su user por favor introducelo: ");
         
-String n = sc.nextLine();
+            String n = sc.nextLine();
 
-if(user(n)){ System.out.println("Willkommen " + n + " ahora inserta tu pass");
-                String p = sc.nextLine();
-                Boolean f = (pass(p))? true : false;
-                    if(pass(p)){
+                if(user(n)){ System.out.println("Willkommen " + n + " ahora inserta tu pass");
+                    String p = sc.nextLine();
+                    Boolean f = (pass(p))? true : false;
+                         if(pass(p)){
                         System.out.println("Acceso corretamente");
                             String w = admin(n); // Para saber si es admin o no.
                             String nick = nick(n);
                             acciones(n, w,nick);
                                 } 
-                    else { System.out.println("Lo sieno has fallado! "); }
+                        else { System.out.println("Lo sieno has fallado! "); }
            
                         } 
-else { System.out.println("Lo siento usuario no registrado");
-        }
+            else { System.out.println("Lo siento usuario no registrado");
+                 }           
        
   }   
     
 
     public static void main(String args[]) {
               Login n = new Login();
-              n.leeFile();
-              n.logea();
+                n.leeFile();
+                    n.logea();
             
              
     }

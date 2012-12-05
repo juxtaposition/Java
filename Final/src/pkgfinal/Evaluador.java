@@ -193,7 +193,7 @@ public class Evaluador {
 			e.printStackTrace();
 		}
                 show(archivo);  System.exit(1);  
-   }
+   } // end despliga() - para admin's
    
    
    
@@ -220,7 +220,7 @@ public class Evaluador {
 			e.printStackTrace();
 		}
                 show(archivo); System.exit(1);
-   }
+   } // end despliega() - para no admin's
 
     
     
@@ -245,20 +245,19 @@ void show(String f){
           }
           finally{
               showsc.close();
-          }
-          
+          }          
         } 
         catch (FileNotFoundException ex) {
             log("Murio! no se encontro "+f );
         }
         
-}    
+} // End of show()    
 
 private void log(String msg){
     System.out.println(msg);
-}
+} // end of log()
 
-   }    
+}    
      
        
        
