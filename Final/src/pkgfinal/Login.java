@@ -23,16 +23,17 @@ public class Login extends Menu{
         String who;    
 
     /**
-     * 
-     * @param u
-     * @return 
+     * Método "mal" implementado para saber si existe un usuario en nuestra
+     * base de datos.
+     * @param u usuario que deseamos buscar
+     * @return Boolean si existe o no el usuario
      */
-    public Boolean user(String u){
+ public Boolean user(String u){
         int s = listota.size();
-        for(int i = 0;i<s;i++){
-                    for(int j = 0;j<listota.get(i).size();j++){
+        for(int i = 0;i<s;i++){ // Busca en la primer lista. y si no en el resto :P
+                    for(int j = 0;j<listota.get(i).size();j++){ // Busca en los elementos de cada lista
 
-           v = u.compareTo((String)listota.get(i).get(j)) == 0;
+           v = u.compareTo((String)listota.get(i).get(j)) == 0; // Comparamos si existe el usuario.
            if(v){ return v;} 
         }
                      return v;
@@ -42,13 +43,16 @@ public class Login extends Menu{
                    return v;
     }
     
+    
+    
+    
     /**
      * Método que se verifica el password de un usuario en caso de ser invalido
      * lo informa y lo hace logear de nuevo
      * @param u Password a verificar
      * @return Boolean si es correcto o no el password
      */
-    public Boolean pass(String u,String user){      
+public Boolean pass(String u,String user){      
         String usuario = user; // usuario
              int s = listota.get(0).size(); // Tamaño de la la lista de users
 
@@ -56,7 +60,7 @@ public class Login extends Menu{
         for(int i = 0;i<=s;i++){ // Recorres la lista de nombres en busca del usuario
             if(usuario.compareTo((String)listota.get(0).get(i)) == 0 ){ // Si lo encontramos
                 /* Como los indiceis de cada usuario, es el mismo
-                 * para nick, password, y poder basta con hacer obtener su indice en 
+                 * para nick, password, y poder basta con obtener su indice en 
                  * alguna lista y sabemos que su pass, etc debe estar en el mismo indice
                  * de la lista correspondiente
                  */
@@ -72,27 +76,31 @@ public class Login extends Menu{
      return v;
     }   
     
-    
-     public String admin(String u){
-     int s = listota.size();
-        for(int i = 0;i<s;i++){
-                    for(int j = 0;j<listota.get(i).size();j++){
-         who = (u.compareTo((String)listota.get(i).get(j)) == 0)? (String)listota.get(2).get(j) : "NoBody" ;           
+
+/**
+ * Método que buscar el poder de cada usuario
+ * @param u Usurio que se desea buscar el poder
+ * @return String con su poder ya sea: user o admin
+ */
+public String admin(String u){
+                    for(int j = 0;j<listota.get(0).size();j++){
+         who = (u.compareTo((String)listota.get(0).get(j)) == 0)? (String)listota.get(2).get(j) : "NoBody" ;           
    
         if(who.compareTo("user") == 0 || who.compareTo("admin") == 0){ return who; }
         }
-                    // return who;
-
-    }
-
-              //     return v;
         return who;
     }  
     
-        public String nick(String u){
+
+/**
+ * Método para obtener el nick (O Nombre completo del usuario)
+ * @param u Usuario que deseamos saber su nick
+ * @return String con el nick del usuario
+ */
+public String nick(String u){
      int s = listota.get(3).size();
      //   for(int i = 3;i<s;i++){
-                    for(int i = 0;i<=s;i++){
+         for(int i = 0;i<=s;i++){
             if(u.compareTo((String)listota.get(0).get(i)) == 0 ){
                 who = (String)listota.get(3).get(i);
                       return who;
@@ -104,18 +112,11 @@ public class Login extends Menu{
        
         }
                    
-
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     public void leeFile(){
+    
+/**
+ * Método de cargar el archivo login, en nuestra base de dato ... llamada listas de listas.
+ */     
+public void leeFile(){
 
         int i = 0;
         try{
@@ -140,7 +141,6 @@ public class Login extends Menu{
                     abraham:6666:admin:Abraham Sosa
                  */
                 
-                //User
                listaNombre.add(no);
                listaPass.add(pa);
                listaAdmin.add(ad);
@@ -162,8 +162,14 @@ public class Login extends Menu{
         
   }
 
-  public void logea(){
-       //Menu m = new Menu();
+
+/**
+ * Método que pide usuario y password, para poder 
+ * utilizar el evaluador.
+ * Si falla en el login, cuando es usuario lo saca y cuando es
+ * con password le pide que vuelva a logear.
+ */
+public void logea(){
       Scanner sc = new Scanner(System.in);
       
       System.out.println("Primero veamos si existe su user por favor introducelo: ");
@@ -188,7 +194,7 @@ public class Login extends Menu{
   }   
     
 
-    public static void main(String args[]) {
+public static void main(String args[]) {
               Login n = new Login();
                 n.leeFile();
                     n.logea();
